@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 19:26:22 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/02/22 10:46:35 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:34:23 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "get_next_line.h"
 
 typedef struct s_list {
 	void			*content;

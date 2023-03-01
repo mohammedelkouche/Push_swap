@@ -6,13 +6,13 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:27:46 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/02/28 17:40:15 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/01 11:31:41 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-src = Mandatory/main.c
+SRC = Mandatory/main.c
 
 OSRC = $(SRC:.c=.o)
 
@@ -21,6 +21,8 @@ CC = cc
 LIBFT = libft/libft.a
 PRINTF = ft_printf/libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
+
+all: $(NAME)
 
 $(NAME) : $(OSRC)
 	@make -C ft_printf/
