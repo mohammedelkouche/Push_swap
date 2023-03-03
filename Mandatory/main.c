@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:27:49 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/02 23:12:54 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:37:27 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,31 @@ int	check_arg(char **arg)
 		{
 			if (arg[i][j] == '-' || arg[i][j] == '+')
 				j++;
-			if (!ft_isdigit(arg[i][j]))
-				ft_printf("error\n");
-				// return (0);
+			if (!ft_isdigit(arg[i][j]) || arg[i][j + 1] == '-' ||
+			arg[i][j + 1] == '+')
+				return (0);
 		}
 	}
 	ft_printf("hello");
+	return (1);
+}
+
+int	chek_space(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (av[++i])
+	{
+		j = 0;
+		if (*av)
+			return (0);
+		while ((av[i][j] != '\0' && av[i][j] >= 9 && av[i][i] <= 13) || av[i][j] == 32)
+			j++;
+		if (av[i][j] == '\0')
+			return (0);
+	}
 	return (1);
 }
 
@@ -60,6 +79,11 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc > 1)
 	{
+		if (!chek_space(argv))
+		{
+			ft_printf("existance of Whitespace argument");
+			exit (1);
+		}
 		if (!join)
 			join = ft_strdup("");
 		while (argv[++i])
@@ -67,13 +91,11 @@ int	main(int argc, char **argv)
 			join = ft_strxjoin(join, argv[i]);
 			join = ft_strxjoin(join, " ");
 		}
-		// ft_printf("%s\n", join);
 		arg = ft_split(join, ' ');
-		int j = -1;
-		while (arg[++j])
-			ft_printf("%s\n", arg[j]);
+		// int j = -1;
+		// while (arg[++j])
+		// 	ft_printf("%s\n", arg[j]);
 		check_arg(arg);
-		// ft_printf("%d\n", ft_atoi("-6a"));
 	}
 	else
 		ft_printf("messing argument");
