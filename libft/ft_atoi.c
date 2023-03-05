@@ -6,10 +6,11 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:12:06 by mel-kouc          #+#    #+#             */
-/*   Updated: 2022/11/05 09:42:24 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/05 23:23:20 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 static	int	check_res(long long int res, long long int f_res)

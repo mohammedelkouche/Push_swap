@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/05 18:36:53 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/04 14:59:01 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/04 15:06:23 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
-
-// int	main(int argc, char **argv);
-void	ft_error(void);
-int		chek_space(char **av);
-int		check_digit(char **arg);
-int		*convert_to_int(int argc, char **arg);
-int		check_is_int(char **arg);
-
-#endif
+void	ft_error(void)
+{
+	ft_printf("Error\n");
+	exit (1);
+}

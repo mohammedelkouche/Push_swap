@@ -6,13 +6,13 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:27:46 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/03/01 11:31:41 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/05 11:43:59 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = Mandatory/main.c
+SRC = Mandatory/main.c Mandatory/error.c Mandatory/check_arg.c
 
 OSRC = $(SRC:.c=.o)
 
