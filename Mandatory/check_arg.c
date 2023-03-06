@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 11:41:16 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/06 00:08:53 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:33:48 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,21 @@ int	*convert_to_int(int argc, char **arg)
 	}
 	while (arg[++i])
 	{
-		tmp = ft_atoi(arg[i]);
 		len = ft_strlen(arg[i]);
-		if ((tmp == -1 && len >= 10) || (tmp == 0 && len >= 11))
+		tmp = ft_atoi(arg[i]);
+		if (len > 11 || ((len == 11 && *arg[i] == '-' && tmp > 0)
+				|| (len == 10 && tmp < 0)))
 		{
 			free (table);
 			return (0);
 		}
 		table[i] = tmp;
-		// if (!check_is_int(&arg[i]))
-		// {
-		// 	free (table);
-		// 	return (0);
-		// }
-		ft_printf("%d\n", table[i]);
+	}
+	int j = 0;
+	while (j < argc - 1)
+	{
+		ft_printf("%d\n", table[j]);
+		j++;
 	}
 	return (table);
 }

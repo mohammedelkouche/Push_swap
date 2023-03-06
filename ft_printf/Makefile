@@ -6,7 +6,7 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 19:22:12 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/02/23 19:09:49 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/06 17:51:46 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar -cr $@ $^
+	@echo "*** {Compaling ft_printf Files ...} ***"
 
 %.o: %.c ft_printf.h
 	@$(CC) $(CFLAGS) -c $< -o $@

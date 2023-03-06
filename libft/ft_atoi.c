@@ -6,19 +6,11 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:12:06 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/05 23:23:20 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/06 18:03:20 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-
-static	int	check_res(long long int res, long long int f_res)
-{
-	if ((res / 10) != f_res)
-		return (1);
-	return (0);
-}
 
 static int	ft_signe(char c, int signe)
 {
@@ -29,10 +21,9 @@ static int	ft_signe(char c, int signe)
 
 int	ft_atoi(const char *str)
 {
-	long long int	res;
-	long long int	f_res;
-	int				signe;
-	int				i;
+	int	res;
+	int	signe;
+	int	i;
 
 	i = 0;
 	res = 0;
@@ -44,12 +35,7 @@ int	ft_atoi(const char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		f_res = res;
 		res = res * 10 + (str[i] - '0');
-		if (check_res(res, f_res) && signe == 1)
-			return (-1);
-		else if (check_res(res, f_res) && signe == -1)
-			return (0);
 		i++;
 	}
 	return ((res * signe));

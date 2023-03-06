@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:27:49 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/05 21:30:10 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:48:50 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,47 +29,46 @@ char	*ft_strxjoin(char *data, char *buffer)
 	return (new_data);
 }
 
-void	used_functions(int argc, char **av)
+void	used_functions(int argc, char **av, char **divide, char *join)
 {
 	int			i;
-	static char	*join;
-	char		**arg;
 	int			*intarray;
 
 	i = 0;
 	if (!chek_space(av))
 		ft_error();
-	if (!join)
-		join = ft_strdup("");
 	while (av[++i])
 	{
 		join = ft_strxjoin(join, av[i]);
 		join = ft_strxjoin(join, " ");
 	}
-	arg = ft_split(join, ' ');
-	if (!check_digit(arg))
+	divide = ft_split(join, ' ');
+	if (!check_digit(divide))
 	{
+		free_divide(divide);
 		ft_error();
-		// free arg
 	}
-	intarray = convert_to_int(argc, arg);
-	// int j = -1;
-	// while (intarray[++j])
-	// {
-	// 	ft_printf("%d\n", intarray[j]);
-	// }
-	
-	// if (!check_is_int(arg))
-	// {
-	// 	ft_error();
-	// 	// free arg
-	// }
+	intarray = convert_to_int(argc, divide);
+	if (!intarray)
+	{
+		free_divide(divide);
+		ft_error();
+	}
+	//
 }
 
 int	main(int argc, char **argv)
 {
+	static char	*join;
+	char		**divide;
+
 	if (argc > 1)
-		used_functions(argc, argv);
+	{
+		divide = NULL;
+		if (!join)
+		join = ft_strdup("");
+		used_functions(argc, argv, divide, join);
+	}
 	else
 		ft_error();
 	return (0);

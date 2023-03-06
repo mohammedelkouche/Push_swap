@@ -6,7 +6,7 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 23:20:37 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/03/01 14:39:05 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/06 17:50:29 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar -cr $@ $^
+	@echo "*** {Compaling libft Files ...} ***"
 
 bonus: $(OBJSB)
 	@ar -cr $(NAME) $^
@@ -41,7 +42,7 @@ bonus: $(OBJSB)
 
 %.o: %.c libft.h
 	@$(CC) $(CFLAGS) -c $< -o $@
-
+	
 clean:
 	@rm -f $(OBJS) $(OBJSB)
 
