@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 11:41:16 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/06 22:33:48 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/07 22:06:28 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,37 @@ int	check_digit(char **arg)
 // 	return (1);
 // }
 
+int	arg_len(char *arg)
+{
+	int	len;
+
+	len = 0;
+	while (*arg == '0')
+		arg++;
+	while (*arg)
+	{
+		arg++;
+		len++;
+	}
+	return (len);
+}
+
+int	check_dupl(int	*table, int tmp, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i <= size)
+	{
+		if (table[i] == tmp)
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
 int	*convert_to_int(int argc, char **arg)
 {
 	int	i;
@@ -77,30 +108,21 @@ int	*convert_to_int(int argc, char **arg)
 	int	tmp;
 	int	len;
 
-	i = -1;
+	i = 0;
 	table = malloc((argc - 1) * sizeof(int));
 	if (!table)
-	{
-		free (table);
 		return (0);
-	}
-	while (arg[++i])
+	while (arg[i])
 	{
-		len = ft_strlen(arg[i]);
+		len = arg_len(arg[i]);
 		tmp = ft_atoi(arg[i]);
 		if (len > 11 || ((len == 11 && *arg[i] == '-' && tmp > 0)
 				|| (len == 10 && tmp < 0)))
-		{
-			free (table);
 			return (0);
-		}
+		if (!check_dupl(table, tmp, i))
+			return (0);
 		table[i] = tmp;
-	}
-	int j = 0;
-	while (j < argc - 1)
-	{
-		ft_printf("%d\n", table[j]);
-		j++;
+		i++;
 	}
 	return (table);
 }

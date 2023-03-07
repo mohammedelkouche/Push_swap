@@ -6,11 +6,12 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:27:49 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/06 22:48:50 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/07 22:13:26 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 char	*ft_strxjoin(char *data, char *buffer)
 {
@@ -51,17 +52,28 @@ void	used_functions(int argc, char **av, char **divide, char *join)
 	intarray = convert_to_int(argc, divide);
 	if (!intarray)
 	{
+		free(intarray);
 		free_divide(divide);
 		ft_error();
 	}
-	//
+	// int j = 0;
+	// while (j < argc - 1)
+	// {
+	// 	ft_printf("%d\n", intarray[j]);
+	// 	j++;
+	// }
 }
 
+// void tst()
+// {
+// 	system("leaks push_swap");
+// }
 int	main(int argc, char **argv)
 {
 	static char	*join;
 	char		**divide;
 
+	// atexit(tst);
 	if (argc > 1)
 	{
 		divide = NULL;
