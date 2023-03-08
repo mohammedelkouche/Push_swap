@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:27:49 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/07 22:13:26 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:06:03 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,19 @@ char	*ft_strxjoin(char *data, char *buffer)
 	return (new_data);
 }
 
-void	used_functions(int argc, char **av, char **divide, char *join)
+int	*parsing_functions(int argc, char **av)
 {
 	int			i;
 	int			*intarray;
+	char		**divide;
+	static char	*join;
 
 	i = 0;
+	divide = NULL;
 	if (!chek_space(av))
 		ft_error();
+	if (!join)
+		join = ft_strdup("");
 	while (av[++i])
 	{
 		join = ft_strxjoin(join, av[i]);
@@ -45,23 +50,11 @@ void	used_functions(int argc, char **av, char **divide, char *join)
 	}
 	divide = ft_split(join, ' ');
 	if (!check_digit(divide))
-	{
-		free_divide(divide);
-		ft_error();
-	}
+		free_error(divide);
 	intarray = convert_to_int(argc, divide);
 	if (!intarray)
-	{
-		free(intarray);
-		free_divide(divide);
-		ft_error();
-	}
-	// int j = 0;
-	// while (j < argc - 1)
-	// {
-	// 	ft_printf("%d\n", intarray[j]);
-	// 	j++;
-	// }
+		free_error(divide);
+	return (intarray);
 }
 
 // void tst()
@@ -70,16 +63,13 @@ void	used_functions(int argc, char **av, char **divide, char *join)
 // }
 int	main(int argc, char **argv)
 {
-	static char	*join;
-	char		**divide;
+	int	*intarray;
 
 	// atexit(tst);
 	if (argc > 1)
 	{
-		divide = NULL;
-		if (!join)
-		join = ft_strdup("");
-		used_functions(argc, argv, divide, join);
+		intarray = parsing_functions(argc, argv);
+		// instructions(intarray);
 	}
 	else
 		ft_error();

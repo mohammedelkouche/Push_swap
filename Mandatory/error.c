@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:59:01 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/07 10:34:02 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:38:39 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_error(void)
 	exit (1);
 }
 
-void	free_divide(char **divide)
+void	free_error(char **divide)
 {
 	int	i;
 
@@ -29,4 +29,6 @@ void	free_divide(char **divide)
 		i++;
 	}
 	free(divide);
+	ft_error();
 }
+
