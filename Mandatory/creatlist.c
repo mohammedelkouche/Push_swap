@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   creatlist.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 22:51:51 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/10 15:20:52 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/10 17:38:53 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/10 17:39:48 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+t_list	*creat_list(int *table, t_list *stack_a, int size)
 {
-	t_list	*tmp;
+	int	i;
 
-	if (!lst || !del)
-		return ;
-	while ((*lst))
+	i = 0;
+	while (i < size)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		ft_lstadd_back(&stack_a, ft_lstnew(table[i]));
+		i++;
 	}
-	*lst = 0;
+	return (stack_a);
 }

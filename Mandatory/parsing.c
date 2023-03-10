@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 11:41:16 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/09 18:00:33 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:55:47 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,6 @@ int	check_digit(char **arg)
 	return (1);
 }
 
-int	arg_len(char *arg)
-{
-	int	len;
-
-	len = 0;
-	while (*arg == '0')
-		arg++;
-	while (*arg)
-	{
-		arg++;
-		len++;
-	}
-	return (len);
-}
-
 int	check_dupl(int	*table, int size)
 {
 	int	i;
@@ -87,7 +72,7 @@ int	check_dupl(int	*table, int size)
 	return (1);
 }
 
-int	*convert_to_int(int nbr, char **arg)
+int	*convert_to_int(int size, char **arg)
 {
 	int	i;
 	int	*table;
@@ -95,7 +80,7 @@ int	*convert_to_int(int nbr, char **arg)
 	int	len;
 
 	i = 0;
-	table = malloc(nbr * sizeof(int));
+	table = malloc(size * sizeof(int));
 	if (!table)
 		return (NULL);
 	while (arg[i])
@@ -114,3 +99,29 @@ int	*convert_to_int(int nbr, char **arg)
 	return (table);
 }
 
+int	*parsing_functions(char **av, char *join, int *size)
+{
+	int			i;
+	int			*intarray;
+	char		**divide;
+
+	i = 0;
+	divide = NULL;
+	if (!chek_space(av))
+		ft_error();
+	if (!join)
+		join = ft_strdup("");
+	while (av[++i])
+	{
+		join = ft_strxjoin(join, av[i]);
+		join = ft_strxjoin(join, " ");
+	}
+	divide = ft_split(join, ' ');
+	*size = nbr_divide(divide);
+	if (!check_digit(divide))
+		free_error(divide);
+	intarray = convert_to_int(*size, divide);
+	if (!intarray)
+		free_error(divide);
+	return (intarray);
+}

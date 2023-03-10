@@ -6,14 +6,14 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:27:46 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/03/06 16:50:48 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/10 22:05:51 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = Mandatory/main.c Mandatory/error.c Mandatory/check_arg.c
-
+SRC = Mandatory/main.c Mandatory/error.c Mandatory/parsing.c Mandatory/strjoin.c Mandatory/creatlist.c   \
+	Mandatory/nb_len_arg.c Mandatory/check_sort.c Mandatory/instructions.c
 OSRC = $(SRC:.c=.o)
 
 CC = cc
@@ -26,12 +26,12 @@ all: $(NAME)
 
 $(NAME) : $(OSRC)
 	@make -C ft_printf/
-	@make -C libft/
+	@make bonus -C libft/
 	@$(CC) $(CFLAGS) $(OSRC)  $(PRINTF) $(LIBFT)  -o $(NAME)
 	@echo "*** {Compaling Mandatory ...} ***"
 
 # bonus: $(OBONUS)
-# 	@make -C libft/
+# 	@make bonus -C libft/
 # 	@make -C ft_printf/
 # 	@$(CC) $(CFLAGS) $(MLX) $(OBONUS)  $(PRINTF) $(LIBFT)  -o $(BNAME)
 # 	@echo "*** {Compaling Bonus ...} ***"

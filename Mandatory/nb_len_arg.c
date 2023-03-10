@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   nbr_len_arg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 22:51:51 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/10 15:20:52 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/10 17:46:10 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/10 17:48:12 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+int	nbr_divide(char **divide)
 {
-	t_list	*tmp;
+	int	i;
 
-	if (!lst || !del)
-		return ;
-	while ((*lst))
+	i = 0;
+	while (divide[i])
+		i++;
+	return (i);
+}
+
+int	arg_len(char *arg)
+{
+	int	len;
+
+	len = 0;
+	while (*arg == '0')
+		arg++;
+	while (*arg)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		arg++;
+		len++;
 	}
-	*lst = 0;
+	return (len);
 }

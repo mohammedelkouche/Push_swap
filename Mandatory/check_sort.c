@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   check_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 22:51:51 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/10 15:20:52 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/10 19:08:40 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/10 21:56:30 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+int	check_is_sort(t_list *stack_a)
 {
-	t_list	*tmp;
-
-	if (!lst || !del)
-		return ;
-	while ((*lst))
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
-	}
-	*lst = 0;
+    while (stack_a->next != NULL)
+    {
+        if (stack_a->content > stack_a->next->content)
+            return (0);
+        stack_a = stack_a->next;
+    }
+    return (1);
 }
