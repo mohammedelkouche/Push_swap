@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/10 21:57:11 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/11 11:48:26 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		nbr_divide(char **divide);
 int		arg_len(char *arg);
 int		*parsing_functions(char **av, char *join, int *size);
 int		check_is_sort(t_list *stack_a);
+void	instructions(t_list *stack_a, t_list *stack_b, int size);
 
 
 #endif
