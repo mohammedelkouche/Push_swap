@@ -6,13 +6,13 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:43:05 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/10 15:26:45 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:00:52 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst,  int (*f)(int), void (*del)(int))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int))
 {
 	t_list	*node;
 	t_list	*newlst;
