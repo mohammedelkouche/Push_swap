@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/11 11:48:26 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:16:27 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,16 @@ int		arg_len(char *arg);
 int		*parsing_functions(char **av, char *join, int *size);
 int		check_is_sort(t_list *stack_a);
 void	instructions(t_list *stack_a, t_list *stack_b, int size);
-
+void	swap_a(t_list **stack_a);
+void	push_a(t_list **stack_a, t_list **stack_b);
+void	rotate_a(t_list **stack_a);
+void	rra(t_list **stack_a);
+void	swap_b(t_list **stack_b);
+void	push_b(t_list **stack_a, t_list **stack_b);
+void	rotate_b(t_list **stack_b);
+void	rrb(t_list **stack_b);
+void	s_a_s_b(t_list **stack_a, t_list **stack_b);
+void	rt_a_rt_b(t_list **stack_a, t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

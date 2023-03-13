@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nb_len_arg.c                                       :+:      :+:    :+:   */
+/*   op_stack_a_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 17:46:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/13 12:59:05 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/13 17:12:46 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/13 19:30:30 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	nbr_divide(char **divide)
+void	s_a_s_b(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
-
-	i = 0;
-	while (divide[i])
-		i++;
-	return (i);
+	swap_a(stack_a);
+	swap_b(stack_b);
+	ft_printf("ss\n");
 }
 
-int	arg_len(char *arg)
+void	rt_a_rt_b(t_list **stack_a, t_list **stack_b)
 {
-	int	len;
+	rotate_a(stack_a);
+	rotate_b(stack_b);
+	ft_printf("rr\n");
+}
 
-	len = 0;
-	while (*arg == '0' || (*arg == '-' && *(arg + 1) == '0')
-		|| (*arg == '+' && *(arg + 1) == '0'))
-		arg++;
-	while (*arg)
-	{
-		arg++;
-		len++;
-	}
-	return (len);
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	rra(stack_a);
+	rrb(stack_b);
+	ft_printf("rrr\n");
 }
