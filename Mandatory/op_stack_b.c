@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:06:04 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/13 19:29:23 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:32:09 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@ void	swap_b(t_list **stack_b)
 	tmp = (*stack_b)->content;
 	(*stack_b)->content = (*stack_b)->next->content;
 	(*stack_b)->next->content = tmp;
-    ft_printf("sb\n");
+	ft_printf("sb\n");
 }
 
 //Take the first element at the top of a and put it at the top of b.
 //Do nothing if a is empty.
+// i cut this condition from if ==>    (  || (*stack_a)->next == NULL  )
 void	push_b(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*stack_tmp;
 	// t_list	*current;
 
 
-	if (*stack_a == NULL || (*stack_a)->next == NULL)
+	if (*stack_a == NULL )
 		return ;
 	stack_tmp = *stack_a;
 	*stack_a = (*stack_a)->next;
@@ -50,7 +51,7 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	// 	ft_printf("list: %d\n", current->content);
 	// 	current = current->next;
 	// }
-    ft_printf("pb\n");
+	ft_printf("pb\n");
 }
 
 // b (rotate b): Shift up all elements of stack b by 1.
@@ -74,7 +75,7 @@ void	rotate_b(t_list **stack_b)
 	// 	ft_printf("list: %d\n", current->content);
 	// 	current = current->next;
 	// }
-    ft_printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rrb(t_list **stack_b)
@@ -90,5 +91,5 @@ void	rrb(t_list **stack_b)
 		last = last->next;
 	last->next = NULL;
 	ft_lstadd_front(stack_b, head);
-    ft_printf("rrb\n");
+	ft_printf("rrb\n");
 }

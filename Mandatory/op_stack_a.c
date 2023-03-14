@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:01:53 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/13 19:28:39 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:30:23 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,17 @@ void	swap_a(t_list **stack_a)
 	tmp = (*stack_a)->content;
 	(*stack_a)->content = (*stack_a)->next->content;
 	(*stack_a)->next->content = tmp;
-    ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
 // Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
+// i cut this condition from if ==> (   || (*stack_b)->next == NULL  )
 void	push_a(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*stack_tmp;
 
-	if (*stack_b == NULL || (*stack_b)->next == NULL)
+	if (*stack_b == NULL)
 		return ;
 	stack_tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
@@ -42,7 +43,7 @@ void	push_a(t_list **stack_a, t_list **stack_b)
 		stack_tmp->next = *stack_a;
 		*stack_a = stack_tmp;
 	}
-    ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
 //ra (rotate a): Shift up all elements of stack a by 1.
@@ -66,7 +67,7 @@ void	rotate_a(t_list **stack_a)
 	// 	ft_printf("list: %d\n", current->content);
 	// 	current = current->next;
 	// }
-    ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
 //rra (reverse rotate a): Shift down all elements of stack a by 1.
@@ -91,5 +92,5 @@ void	rra(t_list **stack_a)
 	// 	ft_printf("%d\n", currant->content);
 	// 	currant = currant->next;
 	// }
-    ft_printf("rra\n");
+	ft_printf("rra\n");
 }
