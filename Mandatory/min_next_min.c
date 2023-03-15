@@ -6,29 +6,13 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 09:38:45 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/14 17:12:11 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:49:24 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// t_list	*get_min(t_list **stack_a)
-// {
-// 	t_list	*min;
-// 	t_list	*currant;
-
-// 	min = *stack_a;
-// 	currant = (*stack_a)->next;
-// 	while (currant != NULL)
-// 	{
-// 		if (min->content > currant->content)
-// 			min = currant;
-// 		currant = currant->next;
-// 	}
-// 	return (min);
-// }
-
-int	get_min(t_list **stack_a)
+t_list	*get_min(t_list **stack_a)
 {
 	t_list	*min;
 	t_list	*currant;
@@ -41,43 +25,60 @@ int	get_min(t_list **stack_a)
 			min = currant;
 		currant = currant->next;
 	}
-	return (min->content);
+	return (min);
 }
 
-// t_list	*get_prev_min(t_list **stack_a, t_list	*min)
-// {
-// 	t_list	*prev_min;
-// 	t_list	*currant;
-
-// 	prev_min = *stack_a;
-// 	currant = (*stack_a)->next;
-// 	if (prev_min->content == min->content)
-// 		prev_min = (*stack_a)->next;
-// 	while (currant != NULL)
-// 	{
-// 		if (prev_min->content > currant->content
-// 			&& currant->content != min->content)
-// 			prev_min = currant;
-// 		currant = currant->next;
-// 	}
-// 	return (prev_min);
-// }
-
-int	get_prev_min(t_list **stack_a, int min)
+t_list	*get_prev_min(t_list **stack_a, t_list	*min)
 {
 	t_list	*prev_min;
 	t_list	*currant;
 
 	prev_min = *stack_a;
 	currant = (*stack_a)->next;
-	if (prev_min->content == min)
+	if (prev_min->content == min->content)
 		prev_min = (*stack_a)->next;
 	while (currant != NULL)
 	{
 		if (prev_min->content > currant->content
-			&& currant->content != min)
+			&& currant->content != min->content)
 			prev_min = currant;
 		currant = currant->next;
 	}
-	return (prev_min->content);
+	return (prev_min);
 }
+
+// int	get_min(t_list **stack_a)
+// {
+// 	t_list	*min;
+// 	t_list	*currant;
+
+// 	min = *stack_a;
+// 	currant = (*stack_a)->next;
+// 	while (currant != NULL)
+// 	{
+// 		if (min->content > currant->content)
+// 			min = currant;
+// 		currant = currant->next;
+// 	}
+// 	return (min->content);
+// }
+
+
+// int	get_prev_min(t_list **stack_a, int min)
+// {
+// 	t_list	*prev_min;
+// 	t_list	*currant;
+
+// 	prev_min = *stack_a;
+// 	currant = (*stack_a)->next;
+// 	if (prev_min->content == min)
+// 		prev_min = (*stack_a)->next;
+// 	while (currant != NULL)
+// 	{
+// 		if (prev_min->content > currant->content
+// 			&& currant->content != min)
+// 			prev_min = currant;
+// 		currant = currant->next;
+// 	}
+// 	return (prev_min->content);
+// }

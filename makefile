@@ -6,7 +6,7 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:27:46 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/03/14 10:31:19 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/15 19:45:03 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 SRC = Mandatory/main.c Mandatory/error.c Mandatory/parsing.c Mandatory/strjoin.c Mandatory/creatlist.c   \
 	Mandatory/nb_len_arg.c Mandatory/check_sort.c Mandatory/instructions.c Mandatory/op_stack_a.c	\
-	Mandatory/op_stack_b.c Mandatory/op_stack_a_b.c	Mandatory/min_next_min.c	
+	Mandatory/op_stack_b.c Mandatory/op_stack_a_b.c	Mandatory/min_next_min.c Mandatory/hard_sort.c
 OSRC = $(SRC:.c=.o)
 
 CC = cc

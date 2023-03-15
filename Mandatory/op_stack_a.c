@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:01:53 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/14 20:30:23 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:44:36 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	swap_a(t_list **stack_a)
 {
-	int	tmp;
+	t_list	*tmp;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	tmp = (*stack_a)->content;
-	(*stack_a)->content = (*stack_a)->next->content;
-	(*stack_a)->next->content = tmp;
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	tmp->next = (*stack_a)->next;
+	(*stack_a)->next = tmp;
 	ft_printf("sa\n");
 }
 

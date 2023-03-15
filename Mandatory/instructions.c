@@ -6,59 +6,101 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:02:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/14 20:40:22 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/15 21:34:12 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_list **a, int min, int p_m)
+void	sort_3(t_list **a, t_list *min, t_list *p_m)
 {
-	if ((p_m == (*a)->content && min == (*a)->next->content)
-		|| (p_m == (*a)->next->content && min == (*a)->next->next->content)
-		|| (min == (*a)->content && p_m == (*a)->next->next->content))
+	if ((p_m->content == (*a)->content && min->content == (*a)->next->content)
+		|| (p_m->content == (*a)->next->content
+			&& min->content == (*a)->next->next->content)
+		|| (min->content == (*a)->content
+			&& p_m->content == (*a)->next->next->content))
 		swap_a(a);
-	if (p_m == (*a)->content && min == (*a)->next->next->content)
+	if (p_m->content == (*a)->content
+		&& min->content == (*a)->next->next->content)
 		rra(a);
-	if (min == (*a)->next->content && p_m == (*a)->next->next->content)
+	if (min->content == (*a)->next->content
+		&& p_m->content == (*a)->next->next->content)
 		rotate_a(a);
 }
 
-void	sort_5(t_list **a, t_list **b, int min, int p_m)
+void	convert_to_top(t_list **stack, t_list	*node)
 {
+	int	size;
+
+	size = size_of_stack(stack);
+	if (node->index > (size / 2))
+	{
+		while (*stack != node)
+			rra(stack);
+	}
+	else
+	{
+		while (*stack != node)
+			rotate_a(stack);
+	}
+}
+
+void	sort_5(t_list **a, t_list **b, t_list	*min, t_list *p_m)
+{
+	convert_to_top(a, min);
 	push_b(a, b);
+	convert_to_top(a, p_m);
 	push_b(a, b);
 	min = get_min(a);
 	p_m = get_prev_min(a, min);
 	sort_3(a, min, p_m);
 	push_a(a, b);
-	rotate_a(a);
 	push_a(a, b);
+}
+
+void	index_node(t_list *stack)
+{
+	t_list	*head;
+	int		i;
+
+	i = 0;
+	head = stack;
+	while (head)
+	{
+		head->index = i;
+		i++;
+		head = head->next;
+	}
 }
 
 void	instructions(t_list *stack_a, t_list *stack_b, int size)
 {
-	int	min;
-	int	p_min;
-	t_list		*current;
-	// t_list	*min;
-	// t_list	*p_min;
+	t_list	*min;
+	t_list	*p_min;
+	// t_list	*current;
 
-	stack_b = NULL;
+	index_node(stack_a);
+	// ft_printf("------------------\n");
+	// ft_printf("index of stac_a = %d", index);
+	// ft_printf("\n------------------\n");
 	min = get_min(&stack_a);
+	// ft_printf("%d", stack_a->next->next->index);
 	p_min = get_prev_min(&stack_a, min);
+	// ft_printf("%d\n", min->index);
+	// ft_printf("\n------------------\n");
 	if (size == 2)
 		swap_a(&stack_a);
 	if (size == 3)
 		sort_3(&stack_a, min, p_min);
 	if (size == 5)
 		sort_5(&stack_a, &stack_b, min, p_min);
-	current = stack_a;
-	while (current != NULL)
-	{
-		ft_printf("list: %d\n", current->content);
-		current = current->next;
-	}
+	hard_sort(&stack_a, &stack_b, min, p_min);
+	// current = stack_a;
+	// while (current != NULL)
+	// {
+	// 	ft_printf("list: %d\n", current->content);
+	// 	current = current->next;
+	// }
 	// swap_b(&stack_b);
 	// s_a_s_b(&stack_a, &stack_b);
 	// push_a(&stack_a, &stack_b);

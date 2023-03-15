@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 19:26:22 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/10 19:07:04 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:40:53 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_list {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 t_list	*ft_lstnew(int content);

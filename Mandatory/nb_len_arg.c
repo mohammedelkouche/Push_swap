@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 17:46:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/13 12:59:05 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/15 21:34:32 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,19 @@ int	arg_len(char *arg)
 		len++;
 	}
 	return (len);
+}
+
+int	size_of_stack(t_list **stack)
+{
+	int		size;
+	t_list	*head;
+
+	size = 0;
+	head = *stack;
+	while (head != NULL)
+	{
+		size++;
+		head = (head)->next;
+	}
+	return (size);
 }
