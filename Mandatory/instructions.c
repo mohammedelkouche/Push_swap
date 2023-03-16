@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:02:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/15 21:34:12 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:49:46 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	convert_to_top(t_list **stack, t_list	*node)
 	int	size;
 
 	size = size_of_stack(stack);
-	if (node->index > (size / 2))
+	if (node->position > (size / 2))
 	{
 		while (*stack != node)
 			rra(stack);
@@ -58,7 +58,7 @@ void	sort_5(t_list **a, t_list **b, t_list	*min, t_list *p_m)
 	push_a(a, b);
 }
 
-void	index_node(t_list *stack)
+void	position_node(t_list *stack)
 {
 	t_list	*head;
 	int		i;
@@ -67,7 +67,7 @@ void	index_node(t_list *stack)
 	head = stack;
 	while (head)
 	{
-		head->index = i;
+		head->position = i;
 		i++;
 		head = head->next;
 	}
@@ -79,7 +79,7 @@ void	instructions(t_list *stack_a, t_list *stack_b, int size)
 	t_list	*p_min;
 	// t_list	*current;
 
-	index_node(stack_a);
+	position_node(stack_a);
 	// ft_printf("------------------\n");
 	// ft_printf("index of stac_a = %d", index);
 	// ft_printf("\n------------------\n");
@@ -94,7 +94,7 @@ void	instructions(t_list *stack_a, t_list *stack_b, int size)
 		sort_3(&stack_a, min, p_min);
 	if (size == 5)
 		sort_5(&stack_a, &stack_b, min, p_min);
-	hard_sort(&stack_a, &stack_b, min, p_min);
+	hard_sort(&stack_a, &stack_b, min, size);
 	// current = stack_a;
 	// while (current != NULL)
 	// {

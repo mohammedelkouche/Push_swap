@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/15 21:33:07 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:32:36 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ void	rrb(t_list **stack_b);
 void	s_a_s_b(t_list **stack_a, t_list **stack_b);
 void	rt_a_rt_b(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+void	get_min_index(t_list **stack_a, int size, int i);
 t_list	*get_min(t_list **stack_a);
 t_list	*get_prev_min(t_list **stack_a, t_list	*min);
-void	hard_sort(t_list **a, t_list **b, t_list *min, t_list *p_min);
+void	hard_sort(t_list **a, t_list **b, t_list *min, int size);
 int		size_of_stack(t_list **stack);
 // int		index_node(t_list *stack_a);
 // int		get_min(t_list **stack_a);

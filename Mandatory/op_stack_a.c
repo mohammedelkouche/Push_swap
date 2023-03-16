@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:01:53 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/15 15:44:36 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/16 14:15:47 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	rotate_a(t_list **stack_a)
 {
 	t_list	*head;
 	t_list	*last;
-	// t_list	*current;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
@@ -62,12 +61,6 @@ void	rotate_a(t_list **stack_a)
 	*stack_a = (*stack_a)->next;
 	head->next = NULL;
 	last->next = head;
-	// current = *stack_a;
-	// while (current != NULL)
-	// {
-	// 	ft_printf("list: %d\n", current->content);
-	// 	current = current->next;
-	// }
 	ft_printf("ra\n");
 }
 
@@ -77,7 +70,6 @@ void	rra(t_list **stack_a)
 {
 	t_list	*head;
 	t_list	*last;
-	// t_list	*currant;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
@@ -87,11 +79,5 @@ void	rra(t_list **stack_a)
 		last = last->next;
 	last->next = NULL;
 	ft_lstadd_front(stack_a, head);
-	// currant = *stack_a;
-	// while (currant)
-	// {
-	// 	ft_printf("%d\n", currant->content);
-	// 	currant = currant->next;
-	// }
 	ft_printf("rra\n");
 }

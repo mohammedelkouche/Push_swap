@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 09:38:45 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/15 15:49:24 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:47:41 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list	*get_min(t_list **stack_a)
 			min = currant;
 		currant = currant->next;
 	}
+	min->index = 0;
 	return (min);
 }
 
