@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:30 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 19:46:56 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:20:48 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,33 @@ void	get_min_index(t_list **stack_a, int size, int i)
 	init = *stack_a;
 	while (init)
 	{
-		init->index = -100;
+		init->index = -1;
 		init = init->next;
 	}
-	min = *stack_a;
 	while (i < size)
 	{
+		min = *stack_a;
 		currant = (*stack_a);
+		while (min->index != -1)
+			min = min->next;
 		while (currant != NULL)
 		{
-			if (min->content > currant->content && currant->index == -100)
+			if (min->content > currant->content && currant->index == -1)
 				min = currant;
 			currant = currant->next;
 		}
 		min->index = i;
+		// ft_printf("min cont = %d \t min index = %d\n", min->content, min->index);
 		i++;
-		ft_printf("m cont = %d \t m index %d\n", min->content, min->index);
 	}
-	// return (min);
 }
 
 void	hard_sort(t_list **a, t_list **b, t_list *min, int size)
 {
-	t_list	*tmp;
+	// t_list	*tmp;
 	int		i;
-	// int		j;
-	// int		k;
+	int		j;
+	int		k;
 
 	tmp = *a;
 	i = 0;
@@ -54,7 +55,6 @@ void	hard_sort(t_list **a, t_list **b, t_list *min, int size)
 	*b = NULL;
 	min = NULL;
 	get_min_index(a, size, i);
-	
 	// while (tmp)
 	// {
 	// 	k = size / 2;
@@ -69,6 +69,6 @@ void	hard_sort(t_list **a, t_list **b, t_list *min, int size)
 	// 	else
 	// 		rotate_a(a);
 	// 	size--;
-		// tmp = tmp->next;
+	// 	tmp = tmp->next;
 	// }
 }

@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:02:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 18:49:46 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:17:55 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,26 @@ void	instructions(t_list *stack_a, t_list *stack_b, int size)
 	// t_list	*current;
 
 	position_node(stack_a);
-	// ft_printf("------------------\n");
-	// ft_printf("index of stac_a = %d", index);
-	// ft_printf("\n------------------\n");
 	min = get_min(&stack_a);
-	// ft_printf("%d", stack_a->next->next->index);
 	p_min = get_prev_min(&stack_a, min);
-	// ft_printf("%d\n", min->index);
-	// ft_printf("\n------------------\n");
 	if (size == 2)
+	{
 		swap_a(&stack_a);
+		return ;
+	}	
 	if (size == 3)
+	{
 		sort_3(&stack_a, min, p_min);
+		return ;
+	}
+	// ////////////////////
+	// i must do function handle size == 4
+	// ////////////////////
 	if (size == 5)
+	{
 		sort_5(&stack_a, &stack_b, min, p_min);
+		return ;
+	}
 	hard_sort(&stack_a, &stack_b, min, size);
 	// current = stack_a;
 	// while (current != NULL)
