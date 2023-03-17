@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min_next_min.c                                     :+:      :+:    :+:   */
+/*   min_pr_min.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 09:38:45 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 17:47:41 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:47:28 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,22 @@ t_list	*get_prev_min(t_list **stack_a, t_list	*min)
 		currant = currant->next;
 	}
 	return (prev_min);
+}
+
+t_list	*get_max(t_list **stack_a)
+{
+	t_list	*max;
+	t_list	*currant;
+
+	max = *stack_a;
+	currant = (*stack_a)->next;
+	while (currant != NULL)
+	{
+		if (max->content < currant->content)
+			max = currant;
+		currant = currant->next;
+	}
+	return (max);
 }
 
 // int	get_min(t_list **stack_a)

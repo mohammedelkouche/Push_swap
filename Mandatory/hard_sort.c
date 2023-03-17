@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:30 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 23:20:48 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/18 00:11:57 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,109 @@ void	get_min_index(t_list **stack_a, int size, int i)
 	}
 }
 
-void	hard_sort(t_list **a, t_list **b, t_list *min, int size)
+// void	fill_stack_b(t_list **a, t_list **b, t_list *tmp, int size, )
+// {
+// 	int		i;
+// 	int		k;
+
+// 	i = 0;
+// }
+
+void	stack_a_sorted(t_list **a, t_list **b)
 {
 	// t_list	*tmp;
+	t_list	*max;
+	int		size; 
+
+	// tmp = *b;
+	// max = NULL;
+	// tmp = position_node(a);
+	size = size_of_stack(b);
+	while (size > 0)
+	{
+		max = get_max(b);
+		convert_top_b(b, max);
+		push_a(a, b);
+		size--;
+	}
+	return ;
+}
+
+void	hard_sort(t_list **a, t_list **b, t_list *min, int size)
+{
+	t_list	*tmp;
+	// t_list	*max;
 	int		i;
 	int		j;
 	int		k;
 
 	tmp = *a;
 	i = 0;
-	// size = size_of_stack(t_list **stack);
-	*b = NULL;
+	// *b = NULL;
+
+	// t_list	*current = *a;
 	min = NULL;
+	
 	get_min_index(a, size, i);
-	// while (tmp)
+	// t_list	*current = *a;
+	// ft_printf("\n-----stack_a------\n");
+	// while (current != NULL)
 	// {
-	// 	k = size / 2;
-	// 	if (tmp->index <= i)
-	// 		push_b(b);
-	// 	else if (tmp->index <= i + k)
-	// 	{
-	// 		push_b(b);
-	// 		rotate_b(b);
-	// 		i++;
-	// 	}
-	// 	else
-	// 		rotate_a(a);
-	// 	size--;
-	// 	tmp = tmp->next;
+	// 	ft_printf("list: %d\n", current->index);
+	// 	current = current->next;
+	// }
+	if(size < 100)
+		j = 2;
+	else if(size >= 100)
+		j = 4;
+	else if (size >= 500)
+		j = 8;
+	while (tmp)
+	{
+		k = (size / j);
+		if (tmp->index <= i)
+		{
+			tmp = tmp->next;
+			push_b(a, b);
+			i++;
+			size--;
+		}
+		else if (tmp->index <= i + k)
+		{
+			tmp = tmp->next;
+			push_b(a, b);
+			rotate_b(b);
+			i++;
+			size--;
+		}
+		else
+		{
+			tmp = tmp->next;
+			rotate_a(a);
+		}
+	}
+	// t_list	*current = *a;
+	// ft_printf("\n-----stack_a------\n");
+	// while (current != NULL)
+	// {
+	// 	ft_printf("list: %d\n", current->content);
+	// 	current = current->next;
+	// }
+	// ft_printf("\n-----stack_b------\n");
+	// t_list	*test_b = *b;
+	// while (test_b != NULL)
+	// {
+	// 	ft_printf("list: %d\n", test_b->content);
+	// 	test_b = test_b->next;
+	// }
+		// ft_printf("hello\n");
+
+	stack_a_sorted(a, b);
+	// ft_printf("\n-----stack_a------\n");
+	// t_list	*current = *a;
+	// while (current != NULL)
+	// {
+	// 	ft_printf("list: %d\n", current->content);
+	// 	current = current->next;
 	// }
 }

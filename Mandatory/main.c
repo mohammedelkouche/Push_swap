@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:27:49 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/13 14:26:23 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:37:19 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		intarray = parsing_functions(argv, join, &size);
 		stack_a = creat_list(intarray, stack_a, size);
 		if (!check_is_sort(stack_a))
-			instructions(stack_a, stack_b, size);
+			instructions(&stack_a, &stack_b);
 		// current = stack_a;
 		// while (current != NULL)
 		// {

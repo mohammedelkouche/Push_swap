@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 19:32:36 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/17 23:10:08 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		nbr_divide(char **divide);
 int		arg_len(char *arg);
 int		*parsing_functions(char **av, char *join, int *size);
 int		check_is_sort(t_list *stack_a);
-void	instructions(t_list *stack_a, t_list *stack_b, int size);
+void	instructions(t_list **stack_a, t_list **stack_b);
 void	swap_a(t_list **stack_a);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	rotate_a(t_list **stack_a);
@@ -55,6 +55,11 @@ t_list	*get_min(t_list **stack_a);
 t_list	*get_prev_min(t_list **stack_a, t_list	*min);
 void	hard_sort(t_list **a, t_list **b, t_list *min, int size);
 int		size_of_stack(t_list **stack);
+void	simple_sort(t_list **a, t_list **b, t_list *min, t_list *p_min);
+void	convert_to_top(t_list **stack, t_list	*node);
+t_list	*get_max(t_list **stack_a);
+void	position_node(t_list **stack);
+void	convert_top_b(t_list **stack, t_list	*node);
 // int		index_node(t_list *stack_a);
 // int		get_min(t_list **stack_a);
 // int		get_prev_min(t_list **stack_a, int min);

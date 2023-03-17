@@ -6,26 +6,42 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:02:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 23:17:55 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/17 23:21:44 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_list **a, t_list *min, t_list *p_m)
+void	convert_top_b(t_list **stack, t_list	*node)
 {
-	if ((p_m->content == (*a)->content && min->content == (*a)->next->content)
-		|| (p_m->content == (*a)->next->content
-			&& min->content == (*a)->next->next->content)
-		|| (min->content == (*a)->content
-			&& p_m->content == (*a)->next->next->content))
-		swap_a(a);
-	if (p_m->content == (*a)->content
-		&& min->content == (*a)->next->next->content)
-		rra(a);
-	if (min->content == (*a)->next->content
-		&& p_m->content == (*a)->next->next->content)
-		rotate_a(a);
+	int	size;
+
+	size = size_of_stack(stack);
+	// 	ft_printf("\n----------------------\n");
+	// ft_printf("size ====%d\n",size);
+	// ft_printf("node postion ====%d\n",node->position);
+	// 	ft_printf("\n-----stack_b------\n");
+	// t_list	*test_b = *stack;
+	// while (test_b != NULL)
+	// {
+	// 	ft_printf("list: %d\n", test_b->content);
+	// 	test_b = test_b->next;
+	// }
+	position_node(stack);
+	if (node->position > (size / 2))
+	{
+		while (*stack != node)
+			rrb(stack);
+		// while (*stack != node)
+		// 	rotate_b(stack);
+	}
+	else
+	{
+		while (*stack != node)
+			rotate_b(stack);
+		// while (*stack != node)
+		// 	rrb(stack);
+	}
 }
 
 void	convert_to_top(t_list **stack, t_list	*node)
@@ -45,26 +61,13 @@ void	convert_to_top(t_list **stack, t_list	*node)
 	}
 }
 
-void	sort_5(t_list **a, t_list **b, t_list	*min, t_list *p_m)
-{
-	convert_to_top(a, min);
-	push_b(a, b);
-	convert_to_top(a, p_m);
-	push_b(a, b);
-	min = get_min(a);
-	p_m = get_prev_min(a, min);
-	sort_3(a, min, p_m);
-	push_a(a, b);
-	push_a(a, b);
-}
-
-void	position_node(t_list *stack)
+void	position_node(t_list **stack)
 {
 	t_list	*head;
 	int		i;
 
 	i = 0;
-	head = stack;
+	head = *stack;
 	while (head)
 	{
 		head->position = i;
@@ -73,35 +76,30 @@ void	position_node(t_list *stack)
 	}
 }
 
-void	instructions(t_list *stack_a, t_list *stack_b, int size)
+void	instructions(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*min;
 	t_list	*p_min;
+	int		size;
 	// t_list	*current;
 
+	size = size_of_stack(stack_a);
 	position_node(stack_a);
-	min = get_min(&stack_a);
-	p_min = get_prev_min(&stack_a, min);
-	if (size == 2)
-	{
-		swap_a(&stack_a);
-		return ;
-	}	
-	if (size == 3)
-	{
-		sort_3(&stack_a, min, p_min);
-		return ;
-	}
-	// ////////////////////
-	// i must do function handle size == 4
-	// ////////////////////
-	if (size == 5)
-	{
-		sort_5(&stack_a, &stack_b, min, p_min);
-		return ;
-	}
-	hard_sort(&stack_a, &stack_b, min, size);
-	// current = stack_a;
+	min = get_min(stack_a);
+	p_min = get_prev_min(stack_a, min);
+	if (size <= 5)
+		simple_sort(stack_a, stack_b, min, p_min);
+	else
+		hard_sort(stack_a, stack_b, min, size);
+	// push_b(stack_a,stack_b);
+	// current = *stack_a;
+	// while (current != NULL)
+	// {
+	// 	ft_printf("list: %d\n", current->content);
+	// 	current = current->next;
+	// }
+	// current = *stack_b;
+	// ft_printf("------- stack_b ----------\n");
 	// while (current != NULL)
 	// {
 	// 	ft_printf("list: %d\n", current->content);
