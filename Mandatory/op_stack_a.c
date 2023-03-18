@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:01:53 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/16 14:15:47 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:44:20 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ void	push_a(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*stack_tmp;
 
+	stack_tmp = *stack_b;
+	if (size_of_stack(stack_b) > 1)
+		*stack_b = (*stack_b)->next;
 	if (*stack_b == NULL)
 		return ;
-	stack_tmp = *stack_b;
-	*stack_b = (*stack_b)->next;
 	stack_tmp->next = NULL;
 	if (*stack_a == NULL)
 		*stack_a = stack_tmp;
@@ -62,6 +63,14 @@ void	rotate_a(t_list **stack_a)
 	head->next = NULL;
 	last->next = head;
 	ft_printf("ra\n");
+	// ft_printf("\n----------------xstack_ a x---------\n");
+	// t_list *current = *stack_a;
+	// while (current != NULL)
+	// {
+	// 	ft_printf("list: %d\n", current->content);
+	// 	current = current->next;
+	// }
+	// ft_printf("\n----------------x a x---------\n");
 }
 
 //rra (reverse rotate a): Shift down all elements of stack a by 1.

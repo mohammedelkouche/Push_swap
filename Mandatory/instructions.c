@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:02:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/17 23:21:44 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/18 22:41:27 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	convert_top_b(t_list **stack, t_list	*node)
 	// 	test_b = test_b->next;
 	// }
 	position_node(stack);
+
 	if (node->position > (size / 2))
 	{
 		while (*stack != node)
@@ -35,7 +36,7 @@ void	convert_top_b(t_list **stack, t_list	*node)
 		// while (*stack != node)
 		// 	rotate_b(stack);
 	}
-	else
+	else if(node->position <= (size / 2))
 	{
 		while (*stack != node)
 			rotate_b(stack);
