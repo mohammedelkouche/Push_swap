@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/17 23:10:08 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:41:02 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,15 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	get_min_index(t_list **stack_a, int size, int i);
 t_list	*get_min(t_list **stack_a);
 t_list	*get_prev_min(t_list **stack_a, t_list	*min);
-void	hard_sort(t_list **a, t_list **b, t_list *min, int size);
+void	fill_stack_b(t_list **a, t_list **b, int size, int j);
 int		size_of_stack(t_list **stack);
 void	simple_sort(t_list **a, t_list **b, t_list *min, t_list *p_min);
 void	convert_to_top(t_list **stack, t_list	*node);
 t_list	*get_max(t_list **stack_a);
 void	position_node(t_list **stack);
 void	convert_top_b(t_list **stack, t_list	*node);
-// int		index_node(t_list *stack_a);
-// int		get_min(t_list **stack_a);
-// int		get_prev_min(t_list **stack_a, int min);
+void	get_min_index(t_list **stack_a, int size, int i);
+void	stack_a_sorted(t_list **a, t_list **b);
+int		check_divisor(int size);
+
 #endif

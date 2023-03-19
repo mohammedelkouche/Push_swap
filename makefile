@@ -6,7 +6,7 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:27:46 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/03/17 11:48:19 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/19 18:52:28 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 SRC = Mandatory/main.c Mandatory/error.c Mandatory/parsing.c Mandatory/strjoin.c Mandatory/creatlist.c   \
 	Mandatory/nb_len_arg.c Mandatory/check_sort.c Mandatory/instructions.c Mandatory/op_stack_a.c	\
 	Mandatory/op_stack_b.c Mandatory/op_stack_a_b.c	Mandatory/min_pr_min.c Mandatory/hard_sort.c	\
-	Mandatory/simple_sort.c
+	Mandatory/simple_sort.c Mandatory/utile_inst.c
 OSRC = $(SRC:.c=.o)
 
 CC = cc
@@ -39,7 +39,7 @@ $(NAME) : $(OSRC)
 # 	@echo "*** {Compaling Bonus ...} ***"
 
 
-%.o: %.c Mandatory/push_swap.h
+%.o: %.c Mandatory/push_swap.h libft/libft.h ft_printf/ft_printf.h
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "*** {Compaling Files ...} ***"
 
