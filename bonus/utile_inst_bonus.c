@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utile_inst.c                                       :+:      :+:    :+:   */
+/*   utile_inst_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 18:35:59 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:27:47 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/20 23:50:23 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/20 23:50:25 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	get_min_index(t_list **stack_a, int size, int i)
 {

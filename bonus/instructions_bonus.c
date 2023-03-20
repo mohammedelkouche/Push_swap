@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   instructions_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 18:02:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 21:55:49 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/20 23:48:58 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/20 23:49:01 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	instructions(t_list **stack_a, t_list **stack_b)
 {

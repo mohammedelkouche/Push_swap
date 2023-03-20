@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_stack_a_b.c                                     :+:      :+:    :+:   */
+/*   strjoin_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 17:12:46 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:19:35 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/20 23:50:16 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/20 23:50:18 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	s_a_s_b(t_list **stack_a, t_list **stack_b)
+char	*ft_strxjoin(char *data, char *buffer)
 {
-	swap_a(stack_a, 0);
-	swap_b(stack_b, 0);
-	ft_printf("ss\n");
-}
+	char	*new_data;
+	size_t	s1;
+	size_t	s2;
 
-void	rt_a_rt_b(t_list **stack_a, t_list **stack_b)
-{
-	rotate_a(stack_a, 0);
-	rotate_b(stack_b, 0);
-	ft_printf("rr\n");
-}
-
-void	rrr(t_list **stack_a, t_list **stack_b)
-{
-	rra(stack_a, 0);
-	rrb(stack_b, 0);
-	ft_printf("rrr\n");
+	s1 = ft_strlen(data);
+	s2 = ft_strlen(buffer);
+	new_data = malloc((s1 + s2 + 1) * sizeof(char));
+	if (!new_data)
+		return (NULL);
+	ft_strlcpy(new_data, data, s1 + 1);
+	ft_strlcpy(new_data + s1, buffer, s2 + 1);
+	free(data);
+	return (new_data);
 }

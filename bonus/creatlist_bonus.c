@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_stack_a_b.c                                     :+:      :+:    :+:   */
+/*   creatlist_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 17:12:46 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:19:35 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/20 23:48:26 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/20 23:48:28 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	s_a_s_b(t_list **stack_a, t_list **stack_b)
+t_list	*creat_list(int *table, t_list *stack_a, int size)
 {
-	swap_a(stack_a, 0);
-	swap_b(stack_b, 0);
-	ft_printf("ss\n");
-}
+	int	i;
 
-void	rt_a_rt_b(t_list **stack_a, t_list **stack_b)
-{
-	rotate_a(stack_a, 0);
-	rotate_b(stack_b, 0);
-	ft_printf("rr\n");
-}
-
-void	rrr(t_list **stack_a, t_list **stack_b)
-{
-	rra(stack_a, 0);
-	rrb(stack_b, 0);
-	ft_printf("rrr\n");
+	i = 0;
+	while (i < size)
+	{
+		ft_lstadd_back(&stack_a, ft_lstnew(table[i]));
+		i++;
+	}
+	return (stack_a);
 }

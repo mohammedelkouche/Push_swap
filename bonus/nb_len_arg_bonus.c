@@ -1,62 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   nb_len_arg_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/04 14:59:01 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 20:16:32 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/20 23:49:22 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/20 23:49:25 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	ft_error(void)
-{
-	ft_printf("Error\n");
-	exit (1);
-}
-
-void	free_error(char **divide)
+int	nbr_divide(char **divide)
 {
 	int	i;
 
 	i = 0;
 	while (divide[i])
-	{
-		free(divide[i]);
 		i++;
-	}
-	free(divide);
-	ft_error();
+	return (i);
 }
 
-void	free_divide(char **divide)
+int	arg_len(char *arg)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (divide[i])
+	len = 0;
+	while (*arg == '0' || (*arg == '-' && *(arg + 1) == '0')
+		|| (*arg == '+' && *(arg + 1) == '0'))
+		arg++;
+	while (*arg)
 	{
-		free(divide[i]);
-		i++;
+		arg++;
+		len++;
 	}
-	free(divide);
+	return (len);
 }
 
-void	free_list(t_list *a)
+int	size_of_stack(t_list **stack)
 {
-	t_list	*tmp;
-	t_list *next;
+	int		size;
+	t_list	*head;
 
-	tmp = a;
-	while (tmp)
+	size = 0;
+	head = *stack;
+	while (head != NULL)
 	{
-		next = tmp->next;
-		// ft_printf("%p\n", tmp);
-		free(tmp);
-		tmp = next;
+		size++;
+		head = (head)->next;
 	}
-	exit(1);
+	return (size);
 }

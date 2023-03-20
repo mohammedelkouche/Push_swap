@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:23:10 by mel-kouc         ###   ########.fr       */
+/*   Created: 2023/03/20 23:48:00 by mel-kouc          #+#    #+#             */
+/*   Updated: 2023/03/20 23:50:32 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
