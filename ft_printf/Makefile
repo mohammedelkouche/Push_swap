@@ -6,7 +6,7 @@
 #    By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 19:22:12 by mel-kouc          #+#    #+#              #
-#    Updated: 2023/03/06 17:51:46 by mel-kouc         ###   ########.fr        #
+#    Updated: 2023/03/22 01:05:47 by mel-kouc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,15 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -cr $@ $^
-	@echo "*** {Compaling ft_printf Files ...} ***"
+	ar -cr $@ $^
 
 %.o: %.c ft_printf.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

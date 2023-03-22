@@ -6,13 +6,13 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:01:53 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:22:20 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:20:38 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_list **stack_a,int flag)
+void	swap_a(t_list **stack_a, int flag)
 {
 	t_list	*tmp;
 

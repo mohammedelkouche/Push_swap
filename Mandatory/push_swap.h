@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:37:32 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:23:10 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:26:35 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	free_error(char **divide);
 void	free_divide(char **divide);
 t_list	*creat_list(int *table, t_list *stack_a, int size);
 int		nbr_divide(char **divide);
-int		arg_len(char *arg);
 int		*parsing_functions(char **av, char *join, int *size);
 int		check_is_sort(t_list *stack_a);
 void	instructions(t_list **stack_a, t_list **stack_b);
@@ -50,8 +49,8 @@ void	convert_to_top(t_list **stack, t_list	*node);
 t_list	*get_max(t_list **stack_a);
 void	position_node(t_list **stack);
 void	convert_top_b(t_list **stack, t_list	*node);
-void	get_min_index(t_list **stack_a, int size, int i);
 void	stack_a_sorted(t_list **a, t_list **b);
 int		check_divisor(int size);
 void	free_list(t_list *a);
+
 #endif

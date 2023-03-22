@@ -6,11 +6,9 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 23:48:42 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 23:48:43 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:22:04 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "push_swap_bonus.h"
 
@@ -50,13 +48,12 @@ void	free_divide(char **divide)
 void	free_list(t_list *a)
 {
 	t_list	*tmp;
-	t_list *next;
+	t_list	*next;
 
 	tmp = a;
 	while (tmp)
 	{
 		next = tmp->next;
-		// ft_printf("%p\n", tmp);
 		free(tmp);
 		tmp = next;
 	}

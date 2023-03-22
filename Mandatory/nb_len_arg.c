@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 17:46:10 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/17 10:23:57 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:57:07 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,6 @@ int	nbr_divide(char **divide)
 	while (divide[i])
 		i++;
 	return (i);
-}
-
-int	arg_len(char *arg)
-{
-	int	len;
-
-	len = 0;
-	while (*arg == '0' || (*arg == '-' && *(arg + 1) == '0')
-		|| (*arg == '+' && *(arg + 1) == '0'))
-		arg++;
-	while (*arg)
-	{
-		arg++;
-		len++;
-	}
-	return (len);
 }
 
 int	size_of_stack(t_list **stack)

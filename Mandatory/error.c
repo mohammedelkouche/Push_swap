@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:59:01 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 20:16:32 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:15:27 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,12 @@ void	free_divide(char **divide)
 void	free_list(t_list *a)
 {
 	t_list	*tmp;
-	t_list *next;
+	t_list	*next;
 
 	tmp = a;
 	while (tmp)
 	{
 		next = tmp->next;
-		// ft_printf("%p\n", tmp);
 		free(tmp);
 		tmp = next;
 	}

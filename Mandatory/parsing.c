@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 11:41:16 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:18:23 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:47:30 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,9 @@ int	check_dupl(int	*table, int size)
 
 int	*convert_to_int(int size, char **arg)
 {
-	int	i;
-	int	*table;
-	int	tmp;
-	int	len;
+	int		i;
+	int		*table;
+	long	tmp;
 
 	i = 0;
 	table = malloc(size * sizeof(int));
@@ -85,11 +84,8 @@ int	*convert_to_int(int size, char **arg)
 		return (NULL);
 	while (arg[i])
 	{
-		len = arg_len(arg[i]);
 		tmp = ft_atoi(arg[i]);
-		if (len > 11 || (len == 11 && *arg[i] == '-' && tmp > 0)
-			|| (len == 10 && *arg[i] != '-' && tmp < 0)
-			|| (len == 11 && *arg[i] != '-'))
+		if (tmp > INT_MAX || tmp < INT_MIN)
 			return (free(table), NULL);
 		table[i] = tmp;
 		i++;

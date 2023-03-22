@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:12:06 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/19 18:50:41 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:02:18 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static int	ft_signe(char c, int signe)
 	return (signe);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	res;
-	int	signe;
-	int	i;
+	long int	res;
+	int			signe;
+	int			i;
 
 	i = 0;
 	res = 0;

@@ -6,37 +6,44 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 23:49:07 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 23:49:08 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:56:49 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "push_swap_bonus.h"
 
-// void tst()
-// {
-// 	system("leaks push_swap");
-// }
-int	main(int argc, char **argv)
+void	used_function(char **argv, t_list **stack_a)
 {
 	int			*intarray;
 	int			size;
 	char		*join;
+
+	join = NULL;
+	intarray = parsing_functions(argv, join, &size);
+	stack_a = creat_list(intarray, stack_a, size);
+	free(intarray);
+}
+
+int	main(int argc, char **argv)
+{
+	char		*str;
 	t_list		*stack_a;
 	t_list		*stack_b;
 
-	// atexit(tst);
-	join = NULL;
-	stack_a = NULL;
-	stack_b = NULL;
 	if (argc > 1)
 	{
-		intarray = parsing_functions(argv, join, &size);
-		stack_a = creat_list(intarray, stack_a, size);
-		free(intarray);
-		if (!check_is_sort(stack_a))
-			instructions(&stack_a, &stack_b);
+		str = get_next_line(0);
+		used_function(argv, &stack_a);
+		while (str)
+		{
+			compare_op(&stack_a, &stack_b, str);
+			free(str);
+			str = get_next_line(0);
+		}
+		if (check_is_sort(stack_a) && stack_b == NULL)
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
 		free_list(stack_a);
 	}
 	else

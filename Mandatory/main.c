@@ -6,16 +6,12 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:27:49 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 22:18:32 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:54:51 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void tst()
-// {
-// 	system("leaks push_swap");
-// }
 int	main(int argc, char **argv)
 {
 	int			*intarray;
@@ -24,7 +20,6 @@ int	main(int argc, char **argv)
 	t_list		*stack_a;
 	t_list		*stack_b;
 
-	// atexit(tst);
 	join = NULL;
 	stack_a = NULL;
 	stack_b = NULL;

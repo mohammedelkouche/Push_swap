@@ -6,13 +6,13 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 23:49:58 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/20 23:50:00 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:19:57 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	swap_b(t_list **stack_b, int flag)
+void	swap_b(t_list **stack_b)
 {
 	t_list	*tmp;
 
@@ -22,8 +22,6 @@ void	swap_b(t_list **stack_b, int flag)
 	*stack_b = (*stack_b)->next;
 	tmp->next = (*stack_b)->next;
 	(*stack_b)->next = tmp;
-	if (flag == 1)
-		ft_printf("sb\n");
 }
 
 void	push_b(t_list **stack_a, t_list **stack_b)
@@ -42,10 +40,9 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 		stack_tmp->next = *stack_b;
 		*stack_b = stack_tmp;
 	}
-	ft_printf("pb\n");
 }
 
-void	rotate_b(t_list **stack_b, int flag)
+void	rotate_b(t_list **stack_b)
 {
 	t_list	*head;
 	t_list	*last;
@@ -59,11 +56,9 @@ void	rotate_b(t_list **stack_b, int flag)
 	head->next = NULL;
 	last->next = head;
 	current = *stack_b;
-	if (flag == 1)
-		ft_printf("rb\n");
 }
 
-void	rrb(t_list **stack_b, int flag)
+void	rrb(t_list **stack_b)
 {
 	t_list	*head;
 	t_list	*last;
@@ -76,6 +71,4 @@ void	rrb(t_list **stack_b, int flag)
 		last = last->next;
 	last->next = NULL;
 	ft_lstadd_front(stack_b, head);
-	if (flag == 1)
-		ft_printf("rrb\n");
 }
