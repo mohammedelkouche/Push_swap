@@ -6,7 +6,7 @@
 /*   By: mel-kouc <mel-kouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 23:49:07 by mel-kouc          #+#    #+#             */
-/*   Updated: 2023/03/22 01:56:49 by mel-kouc         ###   ########.fr       */
+/*   Updated: 2023/03/23 00:12:50 by mel-kouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	main(int argc, char **argv)
 
 	if (argc > 1)
 	{
-		str = get_next_line(0);
 		used_function(argv, &stack_a);
+		str = get_next_line(0);
 		while (str)
 		{
 			compare_op(&stack_a, &stack_b, str);
